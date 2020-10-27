@@ -10,39 +10,38 @@
 
 int print_address(va_list arglist)
 {
-	unsigned long n = (unsigned long)va_arg(arglist, void *);
-	unsigned long num = 0;
-	int bytes = 0, i = 0, j = 0;
-	char array[20];
+	unsigned long num = (unsigned long)va_arg(arglist, void *), num1 = 0;
+	long i, j, bytes = 0, hexa = 0;
+	char *address;
 
-	if (n)
+	if (num == 0)
 	{
-		num = n;
-		if (n == 0)
-		{
-			_putchar(48);
-			bytes++;
-			return (bytes);
-		}
-		while (num != 0)
-		{
-			(num % 16 < 10) ? (array[j] = 48 + num % 16) : (array[j] = 87 + num % 16);
-			j++;
-			num = num / 16;
-			bytes++;
-		}
-		array[j] = 'x';
-		j++;
-		array[j] = '0';
-		j++;
-		bytes += 2;
-		for (i = j - 1 ; i > 0; i--)
-		{
-			_putchar(array[i]);
-		}
-		return (bytes);
-	}
-	else
 		return (-1);
+	}
+	num1 = num;
+	for (i = 1; num1 / 16 != 0; i++)
+		num1 /= 16;
 
+	address = malloc(sizeof(char) * (i + 3));
+	if (address == NULL)
+		return (-1);
+	address[0] = '0';
+	address[1] = 'x';
+	for (j = 0; j < i; j++)
+	{
+		hexa = num % 16;
+		if (hexa > 9)
+			address[(i + 1) - j] = hexa + 87;
+		else
+			address[(i + 1) - j] = hexa + 48;
+		num /= 16;
+	}
+	address[j + 2] = '\0';
+	for (i = 0; address[i] != '\0'; i++)
+	{
+		_putchar(address[i]);
+		bytes++;
+	}
+	free(address);
+	return (bytes);
 }
