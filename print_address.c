@@ -13,7 +13,7 @@ int print_address(va_list arglist)
 	unsigned long num = (unsigned long)va_arg(arglist, void *), num1 = 0;
 	long i, j, bytes = 0, hexa = 0;
 	char *address;
-	char *str = "(nil);
+	char *str = "(nil)";
 
 	if (num == 0)
 	{
