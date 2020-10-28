@@ -22,7 +22,6 @@ int print_address(va_list arglist)
 			_putchar(str[i]);
 			bytes++;
 		}
-		
 		return (bytes);
 	}
 	num1 = num;
