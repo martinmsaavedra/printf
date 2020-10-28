@@ -13,10 +13,17 @@ int print_address(va_list arglist)
 	unsigned long num = (unsigned long)va_arg(arglist, void *), num1 = 0;
 	long i, j, bytes = 0, hexa = 0;
 	char *address;
+	char *str;
 
 	if (num == 0)
 	{
-		return (-1);
+		for (i = 0; str[i] != '\0'; i++)
+		{
+			_putchar(str[i]);
+			bytes++;
+		}
+		
+		return (bytes);
 	}
 	num1 = num;
 	for (i = 1; num1 / 16 != 0; i++)
