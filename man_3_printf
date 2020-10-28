@@ -34,7 +34,9 @@ The inputted string is reversed and printed out.
 The given string is encoded using rot13.
 .SS S
 Prints non printable characters on hexadecimal value
-.SS 
+.SS p
+Print the address which the pointer points to.
+.SS
 .SH EXAMPLE
 .SS To print a simple string followed by a new line.
 
