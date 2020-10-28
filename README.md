@@ -1,6 +1,10 @@
 # Printf project 
 ### _printf is a custom implementation of the C programming function printf.
 
+- %b: Prints the binary representation of an unsigned decimal.
+- %c: Prints a single character.
+- %d: Prints integers.
+
 ## Requirements
 ### General
 
